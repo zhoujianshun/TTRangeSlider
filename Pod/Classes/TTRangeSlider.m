@@ -1,5 +1,5 @@
 //
-//  TTRangeSlider.m
+//  TTRangeSlider.m zjs
 //
 //  Created by Tom Thorpe
 
@@ -29,6 +29,7 @@ const float TEXT_HEIGHT = 14;
 // strong reference needed for UIAccessibilityContainer
 // see http://stackoverflow.com/questions/13462046/custom-uiview-not-showing-accessibility-on-voice-over
 @property (nonatomic, strong) NSMutableArray *accessibleElements;
+
 @end
 
 /**
