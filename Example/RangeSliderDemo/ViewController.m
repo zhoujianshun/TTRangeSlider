@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 
+#import "ZJSDemoViewController.h"
+
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet TTRangeSlider *rangeSlider;
 @property (weak, nonatomic) IBOutlet TTRangeSlider *rangeSliderCurrency;
@@ -74,5 +76,12 @@
         NSLog(@"Custom slider updated. Min Value: %.0f Max Value: %.0f", selectedMinimum, selectedMaximum);
     }
 }
+
+- (IBAction)goDemo:(id)sender {
+    
+    ZJSDemoViewController *vc = [[ZJSDemoViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 
 @end

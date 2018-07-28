@@ -118,6 +118,12 @@ IB_DESIGNABLE
  */
 @property (nonatomic, assign) IBInspectable BOOL enableStep;
 
+
+/**
+ If true the control will smooth  at each step
+ */
+@property (nonatomic, assign) BOOL stepContinues;
+
 /**
  * The step value, this control the value of each step. If not set the default is 0.1.
  * (note: this is ignored if <= 0.0)
