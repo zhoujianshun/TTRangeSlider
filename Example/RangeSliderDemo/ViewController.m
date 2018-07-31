@@ -79,8 +79,8 @@
 
 - (IBAction)goDemo:(id)sender {
     
-    ZJSDemoViewController *vc = [[ZJSDemoViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+//    ZJSDemoViewController *vc = [[ZJSDemoViewController alloc] init];
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

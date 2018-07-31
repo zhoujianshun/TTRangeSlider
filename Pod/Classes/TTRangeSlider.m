@@ -340,8 +340,8 @@ static const CGFloat kLabelsFontSize = 12.0f;
 - (BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint gesturePressLocation = [touch locationInView:self];
     
-    if (CGRectContainsPoint(CGRectInset(self.leftHandle.frame, HANDLE_TOUCH_AREA_EXPANSION, HANDLE_TOUCH_AREA_EXPANSION), gesturePressLocation) || CGRectContainsPoint(CGRectInset(self.rightHandle.frame, HANDLE_TOUCH_AREA_EXPANSION, HANDLE_TOUCH_AREA_EXPANSION), gesturePressLocation))
-    {
+    if (CGRectContainsPoint(CGRectInset(self.leftHandle.frame, HANDLE_TOUCH_AREA_EXPANSION, HANDLE_TOUCH_AREA_EXPANSION), gesturePressLocation) || CGRectContainsPoint(CGRectInset(self.rightHandle.frame, HANDLE_TOUCH_AREA_EXPANSION, HANDLE_TOUCH_AREA_EXPANSION), gesturePressLocation)){
+        
         //the touch was inside one of the handles so we're definitely going to start movign one of them. But the handles might be quite close to each other, so now we need to find out which handle the touch was closest too, and activate that one.
         float distanceFromLeftHandle = [self distanceBetweenPoint:gesturePressLocation andPoint:[self getCentreOfRect:self.leftHandle.frame]];
         float distanceFromRightHandle =[self distanceBetweenPoint:gesturePressLocation andPoint:[self getCentreOfRect:self.rightHandle.frame]];
@@ -413,14 +413,6 @@ static const CGFloat kLabelsFontSize = 12.0f;
     [self updateLabelValues];
     [self updateAccessibilityElements];
     
-    //update the delegate
-    if ([self.delegate respondsToSelector:@selector(rangeSlider:didChangeSelectedMinimumValue:andMaximumValue:)] &&
-        (self.leftHandleSelected || self.rightHandleSelected)){
-        
-        [self.delegate rangeSlider:self didChangeSelectedMinimumValue:self.selectedMinimum andMaximumValue:self.selectedMaximum];
-    }
-    
-    [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
 - (BOOL)continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event {
@@ -428,7 +420,11 @@ static const CGFloat kLabelsFontSize = 12.0f;
     CGPoint location = [touch locationInView:self];
     
     //find out the percentage along the line we are in x coordinate terms (subtracting half the frames width to account for moving the middle of the handle, not the left hand side)
-    float percentage = ((location.x-CGRectGetMinX(self.sliderLine.frame)) - self.handleDiameter/2) / (CGRectGetMaxX(self.sliderLine.frame) - CGRectGetMinX(self.sliderLine.frame));
+   // float percentage = ((location.x-CGRectGetMinX(self.sliderLine.frame)) - self.handleDiameter/2) / (CGRectGetMaxX(self.sliderLine.frame) - CGRectGetMinX(self.sliderLine.frame));
+    
+    // zhoujianshun：fix:When the finger starts to move, the Handle bounce。
+    // zhoujianshun: 修复手指开始移动时，handle会向左跳动一段距离的问题
+    float percentage = ((location.x-CGRectGetMinX(self.sliderLine.frame))) / (CGRectGetMaxX(self.sliderLine.frame) - CGRectGetMinX(self.sliderLine.frame));
     
     //multiply that percentage by self.maxValue to get the new selected minimum value
     float selectedValue = percentage * (self.maxValue - self.minValue) + self.minValue;
@@ -442,6 +438,7 @@ static const CGFloat kLabelsFontSize = 12.0f;
             self.selectedMinimum = self.selectedMaximum;
         }
         
+        [self valueChangeUserActionCallback];
     }
     else if (self.rightHandleSelected)
     {
@@ -451,6 +448,7 @@ static const CGFloat kLabelsFontSize = 12.0f;
         else {
             self.selectedMaximum = self.selectedMinimum;
         }
+        [self valueChangeUserActionCallback];
     }
     
     //no need to refresh the view because it is done as a sideeffect of setting the property
@@ -473,6 +471,8 @@ static const CGFloat kLabelsFontSize = 12.0f;
                     x = count*distance;
                 }
                 self.selectedMinimum = x;
+                
+                [self valueChangeUserActionCallback];
             }
         }
         
@@ -494,9 +494,10 @@ static const CGFloat kLabelsFontSize = 12.0f;
                     x = count*distance;
                 }
                 self.selectedMaximum = x;
+                
+                [self valueChangeUserActionCallback];
             }
         }
-        
         
         self.rightHandleSelected = NO;
         [self animateHandle:self.rightHandle withSelection:NO];
@@ -504,6 +505,22 @@ static const CGFloat kLabelsFontSize = 12.0f;
     if ([self.delegate respondsToSelector:@selector(didEndTouchesInRangeSlider:)]) {
         [self.delegate didEndTouchesInRangeSlider:self];
     }
+}
+
+-(void)valueChangeUserActionCallback{
+//    if ([self.delegate respondsToSelector:@selector(rangeSlider:didChangeValueByUserActionsSelectedMinimumValue:andMaximumValue:)]) {
+//        [self.delegate rangeSlider:self didChangeValueByUserActionsSelectedMinimumValue:self.selectedMinimum andMaximumValue:self.selectedMaximum];
+//    }
+    
+    // move from -(void)refresh to here.
+    // because if call in refresh, the sendActionsForControlEvents  with call when set some propertys;
+    if ([self.delegate respondsToSelector:@selector(rangeSlider:didChangeSelectedMinimumValue:andMaximumValue:)] &&
+        (self.leftHandleSelected || self.rightHandleSelected)){
+        
+        [self.delegate rangeSlider:self didChangeSelectedMinimumValue:self.selectedMinimum andMaximumValue:self.selectedMaximum];
+    }
+    
+    [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
 #pragma mark - Animation

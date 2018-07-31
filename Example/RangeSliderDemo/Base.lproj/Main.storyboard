@@ -222,6 +222,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" id="zHI-sQ-LYr">
                             <connections>
                                 <action selector="goDemo:" destination="vXZ-lx-hvc" id="XzM-4e-QrO"/>
+                                <segue destination="CW6-Ab-GHJ" kind="show" id="OU8-La-xXZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -236,6 +237,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1056" y="1050"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="mex-Zl-F1r">
+            <objects>
+                <viewController id="CW6-Ab-GHJ" customClass="ZJSDemoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="t8b-um-PRB"/>
+                        <viewControllerLayoutGuide type="bottom" id="FNT-jG-hjd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Spl-ZY-k5D">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="osa-yx-Mu2">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="iod-sk-LLy">
+                            <connections>
+                                <segue destination="bKq-2W-asa" kind="show" id="rT1-S6-rom"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H4K-ZS-Uo7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1962" y="990"/>
+        </scene>
+        <!--Demo2 View Controller-->
+        <scene sceneID="MVB-fj-rce">
+            <objects>
+                <viewController id="bKq-2W-asa" customClass="ZJSDemo2ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wUR-Bc-Pwh"/>
+                        <viewControllerLayoutGuide type="bottom" id="naT-L2-tKT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jfT-Ac-Ndg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Tf-Ce-Th9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2770" y="990"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="boc-PQ-Scg">

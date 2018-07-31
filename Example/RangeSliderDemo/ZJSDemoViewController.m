@@ -10,9 +10,7 @@
 
 #import <TTRangeSlider/TTRangeSlider.h>
 
-// 16进制
-#define RGBHEX(hex) [UIColor colorWithRed:((float)((hex & 0xFF0000) >> 16)) / 255.0 green:((float)((hex & 0xFF00) >> 8)) / 255.0 blue:((float)(hex & 0xFF)) / 255.0 alpha:1]
-#define RGBHEXA(hex ,a) [UIColor colorWithRed:((float)((hex & 0xFF0000) >> 16)) / 255.0 green:((float)((hex & 0xFF00) >> 8)) / 255.0 blue:((float)(hex & 0xFF)) / 255.0 alpha:a]
+#import "ZJSColorMacros.h"
 
 @interface ZJSDemoViewController ()<TTRangeSliderDelegate>
 
@@ -56,6 +54,10 @@
 
 -(void)didEndTouchesInRangeSlider:(TTRangeSlider *)sender{
     NSLog(@"selectedMinimum:%@, selectedMaximum:%@", @(sender.selectedMinimum), @(sender.selectedMaximum));
+}
+
+-(void)rangeSlider:(TTRangeSlider *)sender didChangeSelectedMinimumValue:(float)selectedMinimum andMaximumValue:(float)selectedMaximum{
+     NSLog(@"didChange selectedMinimum:%@, selectedMaximum:%@", @(sender.selectedMinimum), @(sender.selectedMaximum));
 }
 
 

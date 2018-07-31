@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0706B12D210EACF40012C4CA /* ZJSTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0706B12C210EACF40012C4CA /* ZJSTableView.m */; };
+		0706B130210EAE130012C4CA /* ZJSDemo2ChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0706B12F210EAE130012C4CA /* ZJSDemo2ChildViewController.m */; };
 		073952B3210B275300BD947D /* ZJSDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 073952B2210B275300BD947D /* ZJSDemoViewController.m */; };
+		073952BA210EA29800BD947D /* ZJSDemo2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 073952B9210EA29700BD947D /* ZJSDemo2ViewController.m */; };
+		073952BF210EA5BF00BD947D /* ZJSScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 073952BE210EA5BF00BD947D /* ZJSScrollView.m */; };
 		64495A441ACAD93700482D73 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 64495A431ACAD93700482D73 /* main.m */; };
 		64495A471ACAD93700482D73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64495A461ACAD93700482D73 /* AppDelegate.m */; };
 		64495A4A1ACAD93700482D73 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64495A491ACAD93700482D73 /* ViewController.m */; };
@@ -30,8 +34,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0706B12B210EACF40012C4CA /* ZJSTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJSTableView.h; sourceTree = "<group>"; };
+		0706B12C210EACF40012C4CA /* ZJSTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJSTableView.m; sourceTree = "<group>"; };
+		0706B12E210EAE130012C4CA /* ZJSDemo2ChildViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJSDemo2ChildViewController.h; sourceTree = "<group>"; };
+		0706B12F210EAE130012C4CA /* ZJSDemo2ChildViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJSDemo2ChildViewController.m; sourceTree = "<group>"; };
 		073952B1210B275300BD947D /* ZJSDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJSDemoViewController.h; sourceTree = "<group>"; };
 		073952B2210B275300BD947D /* ZJSDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJSDemoViewController.m; sourceTree = "<group>"; };
+		073952B8210EA29700BD947D /* ZJSDemo2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJSDemo2ViewController.h; sourceTree = "<group>"; };
+		073952B9210EA29700BD947D /* ZJSDemo2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJSDemo2ViewController.m; sourceTree = "<group>"; };
+		073952BB210EA48400BD947D /* ZJSColorMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJSColorMacros.h; sourceTree = "<group>"; };
+		073952BD210EA5BF00BD947D /* ZJSScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJSScrollView.h; sourceTree = "<group>"; };
+		073952BE210EA5BF00BD947D /* ZJSScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJSScrollView.m; sourceTree = "<group>"; };
 		3DBBEE5E29AE142C4743C900 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		64495A3E1ACAD93700482D73 /* RangeSliderDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RangeSliderDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64495A421ACAD93700482D73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,6 +83,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		073952BC210EA51800BD947D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				073952BD210EA5BF00BD947D /* ZJSScrollView.h */,
+				073952BE210EA5BF00BD947D /* ZJSScrollView.m */,
+				0706B12B210EACF40012C4CA /* ZJSTableView.h */,
+				0706B12C210EACF40012C4CA /* ZJSTableView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		073952C0210EABF800BD947D /* Demo2 */ = {
+			isa = PBXGroup;
+			children = (
+				073952B8210EA29700BD947D /* ZJSDemo2ViewController.h */,
+				073952B9210EA29700BD947D /* ZJSDemo2ViewController.m */,
+				0706B12E210EAE130012C4CA /* ZJSDemo2ChildViewController.h */,
+				0706B12F210EAE130012C4CA /* ZJSDemo2ChildViewController.m */,
+			);
+			name = Demo2;
+			sourceTree = "<group>";
+		};
 		14ACF65C76FC4FFB4BB6625D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +145,8 @@
 		64495A401ACAD93700482D73 /* RangeSliderDemo */ = {
 			isa = PBXGroup;
 			children = (
+				073952C0210EABF800BD947D /* Demo2 */,
+				073952BC210EA51800BD947D /* Views */,
 				6BA46D051BD8DCC60049740C /* images */,
 				64495A451ACAD93700482D73 /* AppDelegate.h */,
 				64495A461ACAD93700482D73 /* AppDelegate.m */,
@@ -130,6 +167,7 @@
 			children = (
 				64495A421ACAD93700482D73 /* Info.plist */,
 				64495A431ACAD93700482D73 /* main.m */,
+				073952BB210EA48400BD947D /* ZJSColorMacros.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -314,9 +352,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				64495A4A1ACAD93700482D73 /* ViewController.m in Sources */,
+				0706B130210EAE130012C4CA /* ZJSDemo2ChildViewController.m in Sources */,
+				073952BF210EA5BF00BD947D /* ZJSScrollView.m in Sources */,
 				073952B3210B275300BD947D /* ZJSDemoViewController.m in Sources */,
 				64495A471ACAD93700482D73 /* AppDelegate.m in Sources */,
+				0706B12D210EACF40012C4CA /* ZJSTableView.m in Sources */,
 				64495A441ACAD93700482D73 /* main.m in Sources */,
+				073952BA210EA29800BD947D /* ZJSDemo2ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
